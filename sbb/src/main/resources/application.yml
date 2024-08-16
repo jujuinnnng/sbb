@@ -1,0 +1,24 @@
+# DATABASE
+spring:
+  # H2 Setting Info (H2 Console에 접속하기 위한 설정정보 입력)
+  h2:
+    console:
+      enabled: true  # H2 Console을 사용할지 여부 (H2 Console은 H2 Database를 UI로 제공해주는 기능)
+      path: /h2-console  # H2 Console로 접속하기 위한 URL Path
+  # Database Setting Info (Database를 H2로 사용하기 위해 H2연결 정보 입력)
+  datasource:
+    driver-class-name: org.h2.Driver  # Database에 접속 할 때 사용하는 드라이버 클래스명 (H2로 사용)
+    url: jdbc:h2:~/local  # Database에 접속하기 위한 경로 (H2 접속 정보)
+    username: sa  
+    password: 
+
+# JPA
+  jpa:
+    hibernate:
+      ddl-auto: update # 엔티티를 기준으로 데이터의 테이블을 생성하는 규칙을 설정한다.(엔티티의 변경된 부분만 Database에 적용한다 / 게발환경에서는 보통 update모드 사용, 운영환경에서는 none 또는 validate를 주로 사용)
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect # 표준 SQL이 아닌 하이버네이트만의 SQL을 사용할 때 필요한 항목으로 하이버네이트의 H2Dialect 클래스를 설정
+        format_sql: true 
+        show_sql: true # 콘솔로그에서 Database에서 실행 된 쿼ㄹ문을 확인 할 수 있음
+ 
