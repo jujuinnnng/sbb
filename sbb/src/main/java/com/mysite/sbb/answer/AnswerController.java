@@ -6,7 +6,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.mysite.sbb.question.Question;
 import com.mysite.sbb.question.QuestionService;
@@ -21,6 +20,7 @@ public class AnswerController {
 	private final QuestionService questionService;
 	private final AnswerService answerService;
 
+	/*답변하기 기능*/
 	@PostMapping("/create/{id}")
 	public String createAnswer(Model model, @PathVariable("id") Integer id, 
 			@Valid AnswerForm answerForm, BindingResult bindingResult) {
