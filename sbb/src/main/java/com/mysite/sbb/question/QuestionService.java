@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import com.mysite.sbb.DataNotFoundException;
+import com.mysite.sbb.user.SiteUser;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -41,12 +42,26 @@ public class QuestionService {
 	 }
 	 
 	 /*질문등록하기 기능*/
-	 public void create(String subject, String content) {
+	 public void create(String subject, String content, SiteUser user) {
 		 Question q = new Question();
 		 q.setSubject(subject);
 		 q.setContent(content);
 		 q.setCreateDate(LocalDateTime.now());
+		 q.setAuthor(user);
 		 this.questionRepository.save(q);
 	 }
+	 
+	/*수정된 질문 처리*/
+	 public void modify(Question question, String subject, String content) {
+        question.setSubject(subject);
+        question.setContent(content);
+        question.setModifyDate(LocalDateTime.now());
+        this.questionRepository.save(question);
+    } 
+	 
+	 /*질문삭제 기능*/
+	 public void delete(Question question) {
+        this.questionRepository.delete(question);
+    }
 	 
 }

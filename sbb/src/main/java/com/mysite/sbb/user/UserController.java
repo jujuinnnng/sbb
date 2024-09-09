@@ -54,6 +54,7 @@ public class UserController {
         return "redirect:/";
     }
 	
+	/*로그인 화면*/
 	@GetMapping("/login")
     public String login() {
         return "login_form";
