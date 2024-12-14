@@ -12,4 +12,10 @@ public class HelloContorller {
 		return "Hello Spring Boot Board"; //developmentOnly 'org.springframework.boot:spring-boot-devtools' 테스르를 위해 생성 (새로고침시 바로 반영을 위함)
 	}
 
+	@GetMapping("test")
+	@ResponseBody
+	public String test(){
+		return "Test Controller";
+	}
+
 }
