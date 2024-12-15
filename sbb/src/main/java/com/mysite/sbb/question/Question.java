@@ -3,19 +3,13 @@ package com.mysite.sbb.question;
 import java.time.LocalDateTime;
 
 import java.util.List;
+import java.util.Set;
 
 import com.mysite.sbb.answer.Answer;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import jakarta.persistence.ManyToOne;
 import com.mysite.sbb.user.SiteUser;
 
 
@@ -43,5 +37,8 @@ public class Question {
     private SiteUser author;
 	
 	private LocalDateTime modifyDate;
+
+	@ManyToMany
+	Set<SiteUser> voter; //voter 속성값이 서로 중복되지 않도록 하기 위해서 set
 
 }

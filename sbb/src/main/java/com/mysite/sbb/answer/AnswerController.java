@@ -84,4 +84,14 @@ public class AnswerController {
         this.answerService.delete(answer);
         return String.format("redirect:/question/detail/%s", answer.getQuestion().getId());
     }
+
+    /* 답변 추천 기능*/
+    @PreAuthorize("isAuthenticated()") //추천은 로그인한 사람만 가능
+    @GetMapping("/vote/{id}")
+    public String answerVote(Principal principal, @PathVariable("id") Integer id) {
+        Answer answer = this.answerService.getAnswer(id);
+        SiteUser siteUser = this.userService.getUser(principal.getName());
+        this.answerService.vote(answer, siteUser); //vote 메서드를 호출하여 추천인을 저장
+        return String.format("redirect:/question/detail/%s", answer.getQuestion().getId());
+    }
 }
