@@ -49,6 +49,7 @@ public class QuestionController {
 	}
 	
 	/*질문등록하기 화면*/
+	@PreAuthorize("isAuthenticated()")
 	@GetMapping("/create")
     public String questionCreate(QuestionForm questionForm) {
         return "question_form";
