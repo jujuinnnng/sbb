@@ -9,6 +9,7 @@ import com.mysite.sbb.answer.Answer;
 import com.mysite.sbb.user.SiteUser;
 
 import jakarta.persistence.criteria.*;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -18,6 +19,7 @@ import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
 
+@Slf4j
 @RequiredArgsConstructor
 @Service
 public class QuestionService {
@@ -51,6 +53,7 @@ public class QuestionService {
 		 q.setSubject(subject);
 		 q.setContent(content);
 		 q.setCreateDate(LocalDateTime.now());
+		 q.setModifyDate(LocalDateTime.now());
 		 q.setAuthor(user);
 		 this.questionRepository.save(q);
 	 }

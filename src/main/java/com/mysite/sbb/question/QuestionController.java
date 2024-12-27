@@ -2,6 +2,7 @@ package com.mysite.sbb.question;
 
 import java.security.Principal;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -25,6 +26,7 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/question")
 @RequiredArgsConstructor
 @Controller
+@Slf4j
 public class QuestionController {
 
     private final QuestionService questionService;

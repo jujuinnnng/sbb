@@ -36,6 +36,8 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
 	implementation 'org.commonmark:commonmark:0.21.0'
+	implementation group: 'org.postgresql', name: 'postgresql', version: '42.7.4' // 추가
+	runtimeOnly 'org.postgresql:postgresql'
 }
 
 tasks.named('test') {

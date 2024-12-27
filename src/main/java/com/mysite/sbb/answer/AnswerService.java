@@ -18,9 +18,11 @@ public class AnswerService {
 	
 	/*답변하기 기능*/
 	public Answer create(Question question, String content, SiteUser author) {
-		Answer answer = new Answer();
+        LocalDateTime now = LocalDateTime.now();
+        Answer answer = new Answer();
 		answer.setContent(content);
-		answer.setCreateDate(LocalDateTime.now());
+		answer.setCreateDate(now);
+        answer.setModifyDate(now);
         answer.setQuestion(question);
         answer.setAuthor(author);
         this.answerRepository.save(answer);
