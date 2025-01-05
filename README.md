@@ -78,7 +78,7 @@
     ``` 
     ubuntu@sbb:~/sbb$ ./stop.sh
     ```
-- 파일명: /home/ubuntu/sbb/start.sh
+- 파일명: /home/ubuntu/sbb/stop.sh
    
     ``` 
     #!/bin/bash
